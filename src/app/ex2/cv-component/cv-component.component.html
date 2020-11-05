@@ -1,0 +1,8 @@
+<div class="row">
+  <div class="col-md-6">
+    <app-liste-component (selectPersonne)="affectToDetail($event)"></app-liste-component>
+  </div>
+  <div class="col-md-6 d-flex justify-content-center">
+    <app-detail-component [personne]="personne"></app-detail-component>
+  </div>
+</div>
