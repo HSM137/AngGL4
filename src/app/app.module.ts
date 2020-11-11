@@ -10,6 +10,8 @@ import { ItemComponentComponent } from './ex2/item-component/item-component.comp
 import { DetailComponentComponent } from './ex2/detail-component/detail-component.component';
 import { TestComponent } from './ex-directive/test/test.component';
 import { RainbowDirective } from './ex-directive/rainbow.directive';
+import { TodoComponent } from './todo/todo/todo.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,11 +22,13 @@ import { RainbowDirective } from './ex-directive/rainbow.directive';
     ItemComponentComponent,
     DetailComponentComponent,
     TestComponent,
-    RainbowDirective
+    RainbowDirective,
+    TodoComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
