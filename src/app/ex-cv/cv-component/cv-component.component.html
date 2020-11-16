@@ -2,7 +2,10 @@
   <div class="col-md-6">
     <app-liste-component (selectPersonne)="affectToDetail($event)"></app-liste-component>
   </div>
-  <div class="col-md-6 d-flex justify-content-center">
+  <div class="col-md-6">
     <app-detail-component [personne]="personne"></app-detail-component>
   </div>
+</div>
+<div class="row">
+  <app-embauche></app-embauche>
 </div>

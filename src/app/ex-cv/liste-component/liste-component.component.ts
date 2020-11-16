@@ -1,4 +1,5 @@
-import { Liste } from './../liste';
+import { CvService } from './../cv.service';
+
 
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 @Component({
@@ -11,10 +12,12 @@ export class ListeComponentComponent implements OnInit {
   list;
   @Output() selectPersonne= new EventEmitter();
 
-  constructor() { }
+  constructor(
+    private cvService : CvService
+  ) { }
 
   ngOnInit(): void {
-    this.list= Liste.list;
+    this.list= this.cvService.getCvs();
   }
 
   emit(personne) {

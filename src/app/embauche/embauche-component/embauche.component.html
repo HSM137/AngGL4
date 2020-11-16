@@ -1,0 +1,7 @@
+<div class="col" *ngIf="personnes.length">
+  <h5>Liste des personnes pré-sélectionnées :</h5>
+  <i *ngFor="let personne of personnes">
+      <img  src="assets/images/{{personne.path | defaultImage}}">
+      {{personne.nom}} {{personne.prenom}}
+  </i>
+</div>

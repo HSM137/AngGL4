@@ -1,3 +1,4 @@
+import { EmbaucheService } from './../../embauche/embauche.service';
 import { Personne } from './../personne';
 import { Component, Input, OnInit } from '@angular/core';
 
@@ -10,9 +11,15 @@ export class DetailComponentComponent implements OnInit {
 
   @Input() personne: Personne;
 
-  constructor() { }
+  constructor(
+    private embaucheService: EmbaucheService
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  embaucher() {
+    this.embaucheService.embaucher(this.personne);
   }
 
 }
