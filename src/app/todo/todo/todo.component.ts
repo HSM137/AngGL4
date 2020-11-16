@@ -22,17 +22,16 @@ export class TodoComponent implements OnInit {
   }
 
   onSubmit() {
-    this.todoService.createTodo(this.todo.name, this.todo.content);
-    this.todos = this.todoService.getTodos();
+    this.todoService.createTodo(this.todo);
+    this.todo=new Todo();
   }
 
-  logger(id: string) {
-    this.todoService.loggerTodo(id);
+  logger(todo: Todo) {
+    this.todoService.loggerTodo(todo);
   }
 
-  supprimer(id: string) {
-    this.todoService.supprimerTodo(id);
-    this.todos = this.todoService.getTodos();
+  supprimer(todo: Todo) {
+    this.todoService.supprimerTodo(todo);
   }
 
 }

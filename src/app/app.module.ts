@@ -12,6 +12,8 @@ import { TestComponent } from './ex-directive/test/test.component';
 import { RainbowDirective } from './ex-directive/rainbow.directive';
 import { TodoComponent } from './todo/todo/todo.component';
 import { FormsModule } from '@angular/forms';
+import { DefaultImagePipe } from './ex-pipe/default-image.pipe';
+import {PipeTestComponent} from './ex-pipe/test/test.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { FormsModule } from '@angular/forms';
     DetailComponentComponent,
     TestComponent,
     RainbowDirective,
-    TodoComponent
+    TodoComponent,
+    DefaultImagePipe,
+    PipeTestComponent
   ],
   imports: [
     BrowserModule,

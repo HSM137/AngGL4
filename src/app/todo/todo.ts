@@ -1,10 +1,12 @@
+import { v4 as uuidv4 } from 'uuid';
+
 export class Todo {
   id : string;
   name: string;
   content: string;
 
-  constructor(id: string ="",name: string="", content: string="") {
-    this.id = id;
+  constructor(name: string="", content: string="") {
+    this.id = uuidv4();
     this.name = name;
     this.content = content;
   }

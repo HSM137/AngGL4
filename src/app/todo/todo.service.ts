@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Todo} from './todo';
-import { v4 as uuidv4 } from 'uuid';
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,9 +10,9 @@ export class TodoService {
 
   constructor() { }
 
-  loggerTodo(id: string) {
-    const todo=this.todos.find(x => x.id===id);
-    if(todo) {
+  loggerTodo(todo: Todo) {
+    const index=this.todos.indexOf(todo);
+    if(index>=0) {
       console.log(todo);
     }
     else {
@@ -20,12 +20,18 @@ export class TodoService {
     }
   }
 
-  createTodo(name: string, content: string) {
-    this.todos.push(new Todo(uuidv4(), name, content))
+  createTodo(todo: Todo) {
+    this.todos.push(todo)
   }
 
-  supprimerTodo(id: string) {
-    this.todos=this.todos.filter(x => x.id !=id);
+  supprimerTodo(todo: Todo) {
+    const index=this.todos.indexOf(todo);
+    if (index>=0) {
+      this.todos.splice(index, 1);
+    }
+    else{
+      console.log("Erreur: Todo Not found");
+    }
   }
 
   getTodos() {
