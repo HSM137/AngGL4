@@ -1,13 +1,23 @@
+import { Personne } from './personne';
 import { Injectable } from '@angular/core';
-import { Liste } from './liste';
+import {HttpClient} from '@angular/common/http';
+import { Observable, Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class CvService {
 
-  constructor() { }
+  selectPersonneSubject = new Subject<Personne>();
 
-  getCvs() {
-    return Liste.list;
+  constructor(
+    private http: HttpClient
+  ) { }
+
+  getCvs() : Observable<Personne[]>{
+    return this.http.get<Personne[]>("https://immense-citadel-91115.herokuapp.com/api/personnes");
+  }
+
+  selectPersonne(personne: Personne) {
+    this.selectPersonneSubject.next(personne);
   }
 }

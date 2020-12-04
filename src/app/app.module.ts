@@ -16,6 +16,7 @@ import { DefaultImagePipe } from './ex-pipe/default-image.pipe';
 import {PipeTestComponent} from './ex-pipe/test/test.component';
 import { HomeComponent } from './home/home.component';
 import { EmbaucheComponent } from './embauche/embauche-component/embauche.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -31,12 +32,15 @@ import { EmbaucheComponent } from './embauche/embauche-component/embauche.compon
     DefaultImagePipe,
     PipeTestComponent,
     HomeComponent,
-    EmbaucheComponent
+    EmbaucheComponent,
+
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

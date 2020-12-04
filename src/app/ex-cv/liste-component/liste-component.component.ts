@@ -1,4 +1,6 @@
+import { Personne } from './../personne';
 import { CvService } from './../cv.service';
+import { Liste } from '../liste';
 
 
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
@@ -9,19 +11,17 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class ListeComponentComponent implements OnInit {
 
-  list;
-  @Output() selectPersonne= new EventEmitter();
+  list: Personne[];
 
   constructor(
     private cvService : CvService
   ) { }
 
   ngOnInit(): void {
-    this.list= this.cvService.getCvs();
-  }
-
-  emit(personne) {
-    this.selectPersonne.emit(personne)
+    this.cvService.getCvs().subscribe(
+      (data:Personne[]) => {this.list=data;},
+      error => this.list=Liste.list
+    );
   }
 
 }
